@@ -9,7 +9,6 @@ import (
 	"strings"
 
 	"github.com/mikey-wotton/indexer"
-	"go.uber.org/zap"
 )
 
 //go:generate go build -o indexer.exe
@@ -18,8 +17,6 @@ func main() {
 	dirPath := flag.String("directory", "./", "The Path to index, default current folder")
 	outPath := flag.String("output", "index.html", "Output index, default index.html")
 	flag.Parse()
-
-	var logger, _ = zap.NewProduction()
 
 	if !strings.HasSuffix(*outPath, ".html") {
 		*outPath = *outPath + ".html"
