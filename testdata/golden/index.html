@@ -1,0 +1,150 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>directory index</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+    <style>
+        body { font-size: 80%; font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif; }
+        .accordionItem h2 { margin: 0; font-size: 1.1em; padding: 0.4em; color: #fff; background-color: #f52424; border-bottom: 1px solid #66d; }
+        .accordionItem h2:hover { cursor: pointer; }
+        .accordionItem div { margin: 0; padding: 1em 0.4em; background-color: #eef; border-bottom: 1px solid #66d; }
+        .accordionItem.hide h2 { color: #000; background-color: #9a9a9a; }
+        .accordionItem.hide div { display: none; }
+    </style>
+</head>
+<body onload="init()">
+
+
+
+  <div class="accordionItem">
+    <h2>
+      <a href="testdata\directory">directory</a> - Total Size: 0MB~
+    </h2>
+  <div>
+    <ol>
+      
+          <li class="file">
+              <a href="testdata\directory\FILEDEPTH2">FILEDEPTH2 - 35KB</a>
+          </li>
+      
+    </ol>
+  </div>
+  </div>
+  
+    <ul>
+      
+        <li>
+          
+  <div class="accordionItem">
+    <h2>
+      <a href="testdata\directory\directory-depth-2a">directory-depth-2a</a> - Total Size: 0MB~
+    </h2>
+  <div>
+    <ol>
+      
+          <li class="file">
+              <a href="testdata\directory\directory-depth-2a\FILEDEPTH3A">FILEDEPTH3A - 35KB</a>
+          </li>
+      
+    </ol>
+  </div>
+  </div>
+  
+    <ul>
+      
+    </ul>
+  
+
+        </li>
+      
+        <li>
+          
+  <div class="accordionItem">
+    <h2>
+      <a href="testdata\directory\directory-depth-2b">directory-depth-2b</a> - Total Size: 0MB~
+    </h2>
+  <div>
+    <ol>
+      
+          <li class="file">
+              <a href="testdata\directory\directory-depth-2b\FILEDEPTH3B">FILEDEPTH3B - 35KB</a>
+          </li>
+      
+    </ol>
+  </div>
+  </div>
+  
+    <ul>
+      
+        <li>
+          
+  <div class="accordionItem">
+    <h2>
+      <a href="testdata\directory\directory-depth-2b\directory3">directory3</a> - Total Size: 0MB~
+    </h2>
+  <div>
+    <ol>
+      
+          <li class="file">
+              <a href="testdata\directory\directory-depth-2b\directory3\directoryFile.go">directoryFile.go - 35KB</a>
+          </li>
+      
+    </ol>
+  </div>
+  </div>
+  
+    <ul>
+      
+    </ul>
+  
+
+        </li>
+      
+    </ul>
+  
+
+        </li>
+      
+    </ul>
+  
+
+<script>
+let accordionItems = new Array();
+    function init() {
+      // Grab the accordion items from the page
+      let divs = document.getElementsByTagName( 'div' );
+      for ( let i = 0; i < divs.length; i++ ) {
+        if ( divs[i].className == 'accordionItem' ) accordionItems.push( divs[i] );
+      }
+      // Assign onclick events to the accordion item headings
+      for ( let i = 0; i < accordionItems.length; i++ ) {
+        let h2 = getFirstChildWithTagName( accordionItems[i], 'H2' );
+        h2.onclick = toggleItem;
+      }
+      // Hide all accordion item bodies except the first
+      for ( let i = 1; i < accordionItems.length; i++ ) {
+        accordionItems[i].className = 'accordionItem hide';
+      }
+    }
+    function toggleItem() {
+      let itemClass = this.parentNode.className;
+      // Hide all items
+      for ( let i = 0; i < accordionItems.length; i++ ) {
+        accordionItems[i].className = 'accordionItem hide';
+      }
+      // Show this item if it was previously hidden
+      if ( itemClass == 'accordionItem hide' ) {
+        this.parentNode.className = 'accordionItem';
+      }
+    }
+    function getFirstChildWithTagName( element, tagName ) {
+      for ( let i = 0; i < element.childNodes.length; i++ ) {
+        if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+      }
+    }
+</script>
+</body>
+</html>
